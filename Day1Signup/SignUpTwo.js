@@ -5,7 +5,14 @@ import { View, Text, StyleSheet, useWindowDimensions, Pressable, TextInput} from
 import { Formik } from 'formik';
 import { useNavigation } from "@react-navigation/native";
 
+import * as yup from 'yup'
 
+const loginValidationSchema = yup.object().shape({
+    email: yup
+      .string()
+      .email("Please enter valid email")
+      .required('Email Address is Required')
+  })
 
 export const SignUp = ({ label, initialEmail }) => {
 
